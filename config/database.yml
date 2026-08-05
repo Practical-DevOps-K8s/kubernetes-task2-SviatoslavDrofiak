@@ -25,13 +25,20 @@ test:
 # #   gem install mysql2
 # #
 # # Configure Using Gemfile
-# #   gem 'mysql2'
-# #
+# #   gem 
 
-production:
-  <<: *default
-  adapter:
-  database:
-  username:
-  password:
-  host:
+production:   
+
+adapter: postgresql   
+
+encoding: unicode   
+
+pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>   
+
+database: <%= ENV["POSTGRES_DB"] %>   
+
+username: <%= ENV["POSTGRES_USER"] %>   
+
+password: <%= ENV["POSTGRES_PASSWORD"] %>   
+
+host: <%= ENV["POSTGRES_HOST"] %>
